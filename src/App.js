@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import './App.css'
+// 1. import `ChakraProvider` component
+import {Button, Center, ChakraProvider, Box, VStack, Container, Grid, GridItem} from '@chakra-ui/react'
+import CalculatorInput from "./components/CalculatorInput";
+import CalculatorButtons from "./components/CalculatorButtons";
+import CalculatorSlider from "./components/CalculatorSlider";
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+
+            <ChakraProvider>
+
+                <Grid
+                    h='200px'
+                    templateRows='repeat(2, 1fr)'
+                    templateColumns='repeat(2, 1fr)'
+                    gap={4}
+
+                    padding="50px"
+                    width={60}
+                >
+                    <GridItem rowSpan={1} colSpan={2} >
+                        <CalculatorInput/>
+                    </GridItem>
+                    
+                    <GridItem rowSpan={1} colSpan={1} >
+                        <CalculatorButtons/>
+                    </GridItem>
+                    <GridItem rowSpan={1} colSpan={1} >
+                        <CalculatorSlider/>
+                    </GridItem>
+
+
+                </Grid>
+
+
+            </ChakraProvider>
+
+    )
 }
 
 export default App;

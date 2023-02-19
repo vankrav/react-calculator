@@ -7,37 +7,27 @@ import CalculatorButtons from "./components/CalculatorButtons";
 import CalculatorSlider from "./components/CalculatorSlider";
 
 
-
+function Numbers(props) {
+        const numbers = Array.from(Array(10).keys()).map(number =>
+        {
+            return <Button key={number} w ="40px" h = "40px" margin="4px">
+                {number}
+            </Button>});
+    return(
+        <Box display="flex" flexWrap="wrap" w="15%" >
+            {numbers}
+        </Box>
+    )
+}
 
 function App() {
 
     return (
 
             <ChakraProvider>
-
-                <Grid
-                    h='200px'
-                    templateRows='repeat(2, 1fr)'
-                    templateColumns='repeat(2, 1fr)'
-                    gap={4}
-
-                    padding="50px"
-                    width={60}
-                >
-                    <GridItem rowSpan={1} colSpan={2} >
-                        <CalculatorInput/>
-                    </GridItem>
-                    
-                    <GridItem rowSpan={1} colSpan={1} >
-                        <CalculatorButtons/>
-                    </GridItem>
-                    <GridItem rowSpan={1} colSpan={1} >
-                        <CalculatorSlider/>
-                    </GridItem>
-
-
-                </Grid>
-
+                <Box display="flex" justifyContent="center" alignItems="center" h="100vh">
+                    <Numbers/>
+                </Box>
 
             </ChakraProvider>
 
